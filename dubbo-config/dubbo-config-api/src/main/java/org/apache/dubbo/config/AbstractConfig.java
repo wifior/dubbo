@@ -56,6 +56,8 @@ public abstract class AbstractConfig implements Serializable {
     protected static final Logger logger = LoggerFactory.getLogger(AbstractConfig.class);
     private static final long serialVersionUID = 4267533505537413570L;
 
+    //属性值的格式检验
+
     /**
      * The maximum length of a <b>parameter's value</b>
      */
@@ -98,11 +100,16 @@ public abstract class AbstractConfig implements Serializable {
 
     /**
      * The legacy properties container
+     *  新老版本的properties的key映射
+     *  key 新
+     *  value 旧
      */
     private static final Map<String, String> LEGACY_PROPERTIES = new HashMap<String, String>();
 
     /**
      * The suffix container
+     * 配置类名的后缀
+     * 例如,ServiceConfig后缀为config;ServiceBean后缀为Bean
      */
     private static final String[] SUFFIXES = new String[]{"Config", "Bean"};
 

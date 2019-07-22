@@ -32,11 +32,11 @@ public class MethodUtils {
     public static boolean isGetter(Method method) {
         String name = method.getName();
         return (name.startsWith("get") || name.startsWith("is"))
-                && !"get".equals(name) && !"is".equals(name)
-                && !"getClass".equals(name) && !"getObject".equals(name)
-                && Modifier.isPublic(method.getModifiers())
-                && method.getParameterTypes().length == 0
-                && ClassUtils.isPrimitive(method.getReturnType());
+                && !"get".equals(name) && !"is".equals(name)//非get ,非is
+                && !"getClass".equals(name) && !"getObject".equals(name)//非getClass 非getObject
+                && Modifier.isPublic(method.getModifiers())//method的getModifiers()方法返回int类型值表示该方法的修饰符
+                && method.getParameterTypes().length == 0 //该对象表示的方法的参数类型的个数
+                && ClassUtils.isPrimitive(method.getReturnType());//此方法主要用来判断Class是否为原始类型
     }
 
     public static boolean isMetaMethod(Method method) {
